@@ -1,7 +1,7 @@
-# TpPavoSimulator — yalnızca PAVO
+# TpPavoSimulator PAVO Ödeme Simülatörü
 
 .NET 8 ASP.NET Core yerel ödeme simülatörü. Tek dinleyici: http://127.0.0.1:18080.
-Bilet API'si yoktur; 18081 açılmaz. Gerçek cihaza veya üretim servisine yönlendirme yapılmaz.
+Gerçek cihaza veya üretim servisine yönlendirme yapılmaz.
 
 ## Derleme
 
@@ -22,7 +22,7 @@ Release/TpPavoSimulator.exe, .NET kurulumu gerektirmeyen Windows x64 tek EXE'dir
 .\Release\TpPavoSimulator.exe
 ```
 
-http://127.0.0.1:18080 adresini açın. Debug için start.ps1 kullanılabilir. Port kullanımda ise sahibi bilinmeyen süreçleri kapatmayın.
+http://127.0.0.1:18080 adresini açın. Debug için start.ps1 kullanılabilir. 
 Varsayılan kayıt kökü EXE/DLL yanındaki runtime klasörüdür. SIMULATOR_DATA_ROOT ile ayrı bir test veri klasörü seçilebilir. Panel ayarı servis yeniden başlayınca Success'e döner; sanal tahsilat ve bekleyen düzeltme kayıtları korunur. Cihaz seri numarası ve yanıt gecikmesi ise data/SYNTHETIC-settings.json içinde saklanır ve yeniden başlatmada hatırlanır. Seri numarası doluysa, TransactionHandle.SerialNumber farklı gelen her PAVO isteği (Pairing dahil) 71 — Seri numarası uyuşmazlığı ile yanıtlanır; boşsa kontrol yapılmaz. Yanıt gecikmesi Pairing dışındaki tüm isteklere uygulanır.
 
 ## Davranış
@@ -43,7 +43,7 @@ dotnet run --project .\tests\HttpTests.csproj -- .\bin\Debug\net8.0\TpPavoSimula
 dotnet run --project .\tests\HttpTests.csproj -- .\Release\TpPavoSimulator.exe
 ```
 
-Test programı yalnızca loopback üzerinde kendi sunucusunu başlatır; tests/artifacts altında ayrı veri kullanır ve sonunda kendi sürecini kapatır. 18081'in kapalı, 18080'in kapanışta serbest olduğunu denetler. Proxy ve yönlendirmeler kapalıdır. Her iki portun başlangıçta boş olması gerekir.
+Test programı yalnızca loopback üzerinde kendi sunucusunu başlatır; tests/artifacts altında ayrı veri kullanır ve sonunda kendi sürecini kapatır. 18080'in kapanışta serbest olduğunu denetler. Proxy ve yönlendirmeler kapalıdır. 
 
 Gerçek bankacılık, mali belge doğrulama, cihaz sürücüsü, gerçek günsonu/iptal/iade ve masaüstü uygulama entegrasyonu bu testlerle doğrulanmış sayılmaz. Başka uygulamaların dış ağ erişimi ayrıca izole edilmelidir.
 
