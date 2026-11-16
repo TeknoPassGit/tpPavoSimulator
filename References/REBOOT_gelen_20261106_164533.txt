@@ -1,0 +1,1 @@
+{"HasError":false,"ErrorCode":null,"Message":null,"TransactionHandle":{"SerialNumber":"SYN000000003","Fingerprint":"qti/bengal_32go/bengal_32go:11/RKQ1.210526.001/eng.xgd_scm.20250903.171809:user/release-keys","TransactionSequence":3,"TransactionDate":"2026-11-06T16:45:34.039899"},"Data":{"Response":"Cihaz yeniden başlatılıyor."}}

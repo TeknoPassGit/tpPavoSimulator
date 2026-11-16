@@ -1,0 +1,62 @@
+{
+  "HasError": false,
+  "ErrorCode": 0,
+  "Message": null,
+  "TransactionHandle": {
+    "SerialNumber": "SYN000000004",
+    "FingerPrint": "alps/full_aiv8175p2_bsp/aiv8175p2_bsp:11/RP1A.200720.011/110:user/dev-keys",
+    "TransactionSequence": 3,
+    "TransactionDate": "2026-11-04T13:05:20.701692"
+  },
+  "Data": {
+    "Id": 0,
+    "SaleNumber": "xkLx64uWZI",
+    "IsOffline": true,
+    "OrderNo": null,
+    "TypeId": 1,
+    "StatusId": 4,
+    "AddedPayments": [
+      {
+        "Id": 0,
+        "SaleId": 0,
+        "StatusId": 2,
+        "MerchantId": 11199,
+        "IsExternal": false,
+        "PaymentTypeId": 2,
+        "OnlinePayment": {
+          "Id": 0,
+          "PaymentId": 0,
+          "SaleId": 0,
+          "ResponseCode": "00",
+          "GivenAmount": 0.0,
+          "AcquirerName": "T.GARANTİ BANKASI A.Ş.",
+          "CardNo": "4111********1111"
+        },
+        "CashPayment": null
+      }
+    ],
+    "AddedSaleItems": [
+      {
+        "Id": 0,
+        "Name": "00SYN01 SYNTHETIC URUN 2",
+        "VATAmount": 33.33,
+        "VATRate": 20.0,
+        "ReservedText": "TEST0001",
+        "ItemQuantity": 1.0,
+        "UnitPriceAmount": 200.0,
+        "TotalPriceAmount": 200.0
+      }
+    ],
+    "FinancialDocuments": [
+      {
+        "Id": 0,
+        "InvoiceNo": "Q8P2026000070914",
+        "DocumentNo": "01a1a605-2e79-723e-a367-fb22450468d5",
+        "SaleUid": null,
+        "CancelRequested": false
+      }
+    ],
+    "Errors": null,
+    "SaleInquieryLink": "https://p.pavo.com.tr/xkLx64uWZI"
+  }
+}

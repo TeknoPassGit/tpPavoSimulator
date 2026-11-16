@@ -1,0 +1,26 @@
+{
+    "HasError":  true,
+    "ErrorCode":  119,
+    "Message":  "2 numaralı Ödeme sağlayıcısı başlatılmamış.",
+    "TransactionHandle":  {
+                              "SerialNumber":  "SYN-THETI",
+                              "FingerPrint":  "SIM-FINGERPRINT",
+                              "TransactionSequence":  1,
+                              "TransactionDate":  "2035-01-01T00:00:00.000001"
+                          },
+    "Data":  {
+                 "Id":  0,
+                 "SaleNumber":  null,
+                 "IsOffline":  false,
+                 "OrderNo":  null,
+                 "TypeId":  0,
+                 "StatusId":  0,
+                 "AddedPayments":  null,
+                 "AddedSaleItems":  null,
+                 "FinancialDocuments":  null,
+                 "Errors":  [
+                                "2 numaralı Ödeme sağlayıcısı başlatılmamış."
+                            ],
+                 "SaleInquieryLink":  null
+             }
+}

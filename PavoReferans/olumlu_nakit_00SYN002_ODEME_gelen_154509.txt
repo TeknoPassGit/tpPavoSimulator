@@ -1,0 +1,62 @@
+{
+  "HasError": false,
+  "ErrorCode": 0,
+  "Message": null,
+  "TransactionHandle": {
+    "SerialNumber": "SYN000000004",
+    "FingerPrint": "alps/full_aiv8175p2_bsp/aiv8175p2_bsp:11/RP1A.200720.011/110:user/dev-keys",
+    "TransactionSequence": 3,
+    "TransactionDate": "2026-11-04T15:45:13.003534"
+  },
+  "Data": {
+    "Id": 0,
+    "SaleNumber": "akLx64xrV9",
+    "IsOffline": true,
+    "OrderNo": null,
+    "TypeId": 1,
+    "StatusId": 4,
+    "AddedPayments": [
+      {
+        "Id": 0,
+        "SaleId": 0,
+        "StatusId": 2,
+        "MerchantId": 11199,
+        "IsExternal": false,
+        "PaymentTypeId": 1,
+        "OnlinePayment": null,
+        "CashPayment": {
+          "Id": 0,
+          "PaymentId": 0,
+          "SaleId": 0,
+          "ResponseCode": null,
+          "GivenAmount": 250.0,
+          "AcquirerName": null,
+          "CardNo": null
+        }
+      }
+    ],
+    "AddedSaleItems": [
+      {
+        "Id": 0,
+        "Name": "00SYN002 SYNTHETIC URUN 2",
+        "VATAmount": 41.67,
+        "VATRate": 20.0,
+        "ReservedText": "TEST0001",
+        "ItemQuantity": 1.0,
+        "UnitPriceAmount": 250.0,
+        "TotalPriceAmount": 250.0
+      }
+    ],
+    "FinancialDocuments": [
+      {
+        "Id": 0,
+        "InvoiceNo": "Q8P2026000070967",
+        "DocumentNo": "01a1a697-8c65-73e0-b3a6-1ba78638a90e",
+        "SaleUid": null,
+        "CancelRequested": false
+      }
+    ],
+    "Errors": null,
+    "SaleInquieryLink": "https://p.pavo.com.tr/akLx64xrV9"
+  }
+}

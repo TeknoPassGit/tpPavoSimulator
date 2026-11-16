@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="tr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PAVO — Yerel Test</title><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script></head>
+<body>
+<main>
+<section class="stats"><header class="brand-card"><div class="brand"><span class="logo">P</span><div><strong>PAVO LAB</strong><small>Yalnızca yerel simülatör · Gerçek tahsilat yok</small></div></div><span class="local">127.0.0.1:18080</span></header><article><span>Sanal tahsilat</span><strong id="captures">0</strong></article><article><span>Toplam</span><strong id="total">₺0,00</strong></article><article><span>Tekrar isteği</span><strong id="repeats">0</strong></article></section>
+<div class="workspace">
+<section class="card controls"><h2>CompleteSale senaryosu</h2>
+<label for="scenario">Gönderilecek yanıt</label><select id="scenario">
+<optgroup label="Temel senaryolar">
+<option value="Success">Başarılı Ödeme</option>
+<option value="Busy20">Cihaz meşgul — 20</option><option value="Error138">Techpos meşgul — 138</option>
+<option value="Error119">Ödeme sağlayıcısı başlatılmamış — 119</option><option value="Error199">Gün sonu alınız — 199</option>
+<option value="Error73">İşlem sıra numarası hatası — 73</option><option value="Error9001">Adres erişim hatası — 9001</option>
+<option value="Error72">İşlem tarihi hatası — 72</option><option value="Timeout">Timeout / yanıt yok</option>
+</optgroup><optgroup label="Ek testler">
+<option value="Correction72">72 — Otomatik tarih düzeltmesini doğrula</option>
+<option value="Correction73">73 — Otomatik sıra düzeltmesini doğrula</option><option value="Rejected">Ödeme reddi — 9100 (gerçek örnek yok)</option>
+<option value="Malformed">Bozuk JSON</option><option value="LostResponse">Tahsilat başarılı, yanıt kayıp</option><option value="Duplicate">Tekrar / idempotency testi</option>
+</optgroup></select>
+<label for="delay">Yanıt gecikmesi — Pairing hariç tüm istekler (ms)</label><input id="delay" type="number" min="0" max="180000" step="100" value="0">
+<label for="serial">Cihaz seri numarası</label><input id="serial" type="text" maxlength="256" autocomplete="off" spellcheck="false" placeholder="Boş: kontrol yok">
+<label for="policy">Aynı işlem tekrar gelirse</label><select id="policy"><option value="ReplaySavedOutcome">Kaydedilen sonucu döndür</option><option value="ApplySelectedScenario">Seçili senaryoyla yanıtla</option></select>
+<button id="save" class="primary">Senaryoyu uygula</button><p id="status" class="status" role="status">Ayarlar okunuyor…</p>
+</section>
+<section class="card"><div class="card-head"><h2>Son gerçek HTTP yanıtı</h2><span id="response-time" class="response-time">—</span><button id="clear-last" type="button" class="small">Temizle</button></div><p id="request-scenario" class="hint">Henüz istek yok.</p><div class="code-caption"><span>POST /CompleteSale</span><span id="httpstatus">Henüz istek yok</span></div><pre id="response" tabindex="0">Henüz yanıt gönderilmedi.</pre><p id="response-note" class="hint"></p></section>
+</div>
+<details class="card ledger"><summary>Sanal ödeme kayıtları</summary><div class="table-wrap"><table><thead><tr><th>Zaman</th><th>İşlem</th><th>Tutar</th><th>Senaryo</th><th>İstek</th><th>Sonuç</th></tr></thead><tbody id="records"></tbody></table></div></details>
+<footer><span>Test verileri · Ham yanıt diske veya loga yazılmaz</span><span id="connection">Bağlanıyor…</span></footer>
+</main></body></html>

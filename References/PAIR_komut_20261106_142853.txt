@@ -1,0 +1,1 @@
+{"TransactionHandle":{"SerialNumber" : "SYN000000003", "TransactionDate": "2026-11-06T14:28:53.000001", "TransactionSequence": 1, "Fingerprint":"teknopass" }}

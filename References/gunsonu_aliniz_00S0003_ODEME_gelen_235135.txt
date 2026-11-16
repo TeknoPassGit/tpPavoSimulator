@@ -1,0 +1,26 @@
+{
+  "HasError": true,
+  "ErrorCode": 199,
+  "Message": "Lütfen gün sonu alınız.",
+  "TransactionHandle": {
+    "SerialNumber": "SYN000000002",
+    "FingerPrint": "alps/full_aiv8175p2_bsp/aiv8175p2_bsp:11/RP1A.200720.011/110:user/dev-keys",
+    "TransactionSequence": 3,
+    "TransactionDate": "2026-10-02T23:51:36.110847"
+  },
+  "Data": {
+    "Id": 0,
+    "SaleNumber": null,
+    "IsOffline": false,
+    "OrderNo": null,
+    "TypeId": 0,
+    "StatusId": 0,
+    "AddedPayments": null,
+    "AddedSaleItems": null,
+    "FinancialDocuments": null,
+    "Errors": [
+      "Lütfen gün sonu alınız."
+    ],
+    "SaleInquieryLink": null
+  }
+}

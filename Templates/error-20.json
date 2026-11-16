@@ -1,0 +1,12 @@
+{
+    "HasError":  true,
+    "ErrorCode":  20,
+    "Message":  "Cihaz meşgul",
+    "TransactionHandle":  {
+                              "SerialNumber":  "SYN-THETI",
+                              "Fingerprint":  "SIM-FINGERPRINT",
+                              "TransactionSequence":  1,
+                              "TransactionDate":  "2035-01-01T00:00:00.000001"
+                          },
+    "Data":  null
+}

@@ -1,0 +1,1 @@
+{"HasError":false,"Message":"","TransactionHandle":{"SerialNumber":"SYN000000003","Fingerprint":"qti/bengal_32go/bengal_32go:11/RKQ1.210526.001/eng.xgd_scm.20250903.171809:user/release-keys","TransactionSequence":2,"TransactionDate":"2026-11-06T14:28:54.307938"}}

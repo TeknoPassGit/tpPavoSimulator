@@ -1,0 +1,10 @@
+{
+    "HasError": false,
+    "Message": "",
+    "TransactionHandle": {
+        "SerialNumber": "SYN-THETI",
+        "Fingerprint": "qti/bengal_32go/bengal_32go:11/RKQ1.210526.001/eng.simulator.20260101.000000:user/release-keys",
+        "TransactionSequence": 2,
+        "TransactionDate": "2035-01-01T00:00:00.000001"
+    }
+}

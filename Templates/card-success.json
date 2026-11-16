@@ -1,0 +1,62 @@
+{
+    "HasError":  false,
+    "ErrorCode":  0,
+    "Message":  null,
+    "TransactionHandle":  {
+                              "SerialNumber":  "SYN-THETI",
+                              "FingerPrint":  "SIM-FINGERPRINT",
+                              "TransactionSequence":  3,
+                              "TransactionDate":  "SENTETIK"
+                          },
+    "Data":  {
+                 "Id":  0,
+                 "SaleNumber":  "SENTETIK",
+                 "IsOffline":  true,
+                 "OrderNo":  null,
+                 "TypeId":  1,
+                 "StatusId":  4,
+                 "AddedPayments":  [
+                                       {
+                                           "Id":  0,
+                                           "SaleId":  0,
+                                           "StatusId":  2,
+                                           "MerchantId":  1,
+                                           "IsExternal":  false,
+                                           "PaymentTypeId":  2,
+                                           "OnlinePayment":  {
+                                                                 "Id":  0,
+                                                                 "PaymentId":  0,
+                                                                 "SaleId":  0,
+                                                                 "ResponseCode":  "00",
+                                                                 "GivenAmount":  0.0,
+                                                                 "AcquirerName":  "SENTETIK_BANKA",
+                                                                 "CardNo":  "000000******0000"
+                                                             },
+                                           "CashPayment":  null
+                                       }
+                                   ],
+                 "AddedSaleItems":  [
+                                        {
+                                            "Id":  0,
+                                            "Name":  "SENTETIK",
+                                            "VATAmount":  33.33,
+                                            "VATRate":  20.0,
+                                            "ReservedText":  "SENTETIK",
+                                            "ItemQuantity":  1.0,
+                                            "UnitPriceAmount":  200.0,
+                                            "TotalPriceAmount":  200.0
+                                        }
+                                    ],
+                 "FinancialDocuments":  [
+                                            {
+                                                "Id":  0,
+                                                "InvoiceNo":  "SENTETIK",
+                                                "DocumentNo":  "SENTETIK",
+                                                "SaleUid":  null,
+                                                "CancelRequested":  false
+                                            }
+                                        ],
+                 "Errors":  null,
+                 "SaleInquieryLink":  "http://127.0.0.1:18080/sim/receipt/0"
+             }
+}

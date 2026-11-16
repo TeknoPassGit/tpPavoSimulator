@@ -1,0 +1,40 @@
+# Build outputs
+bin/
+obj/
+dist/
+publish/
+Release/
+tests/bin/
+tests/obj/
+*.exe
+*.dll
+*.pdb
+
+# Runtime data / logs / test artifacts
+data/
+logs/
+runtime/
+tests/artifacts/
+.cli-home/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# Secrets and signing material
+.env
+.env.*
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+*.snk
+key.properties
+local.properties
+sifre*.txt
+appsettings.*.local.json

@@ -1,0 +1,1 @@
+{"HasError":true,"ErrorCode":9001,"Message":"Adres Erişim Hatası","TransactionHandle":{ "SerialNumber":"S000Y000001","Fingerprint":"teknopass","TransactionSequence":1,"TransactionDate":"2020 - 01 - 01T01:01:01.262988"},"Errors":["Adres erişim hatası"]}

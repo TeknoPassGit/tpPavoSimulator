@@ -1,0 +1,1 @@
+{"HasError":true,"ErrorCode":20,"Message":"Cihaz meşgul","TransactionHandle":{"SerialNumber":"S000Y000001","Fingerprint":"SPRD/sl8541e_1h10_oversea/sl8541e_1h10:9/PPR1.180610.011/245:user/release-keys","TransactionSequence":3,"TransactionDate":"2026-10-28T22:20:43.994642"},"Data":null}
