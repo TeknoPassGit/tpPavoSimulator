@@ -254,6 +254,20 @@ pavo.MapPost("/RebootDevice", async (HttpContext context) =>
     Source(context, "OBSERVED_REBOOT_DEVICE_RESPONSE_NO_RESTART");
     return DeviceCommandResponse.RebootDevice(json);
 });
+pavo.MapPost("/GetTurmobInfo", async (HttpContext context) =>
+{
+    using var doc = await Read(context);
+    if (doc == null || !Wire.ValidHandle(doc.RootElement)) return Invalid();
+    var json = doc.RootElement;
+    if (await DeviceCommandResponse.ApplyScenario(context, json, state.Options.Scenario) is { } early) return early;
+    if (!TurmobResponse.TryReadInput(json, out string kind, out string number))
+    {
+        Source(context, "SYNTHETIC_TEST_CODE_NO_REAL_TURMOB_ERROR_SAMPLE");
+        return TurmobResponse.InvalidInput(json);
+    }
+    Source(context, "DOC_SAMPLE_GETTURMOBINFO_SHAPE_VALUES_SYNTHETIC");
+    return TurmobResponse.Create(json, kind, number, DateTimeOffset.Now);
+});
 pavo.MapPost("/ListPendingSaleWithDetail", async (HttpContext context) =>
 {
     using var doc = await Read(context);

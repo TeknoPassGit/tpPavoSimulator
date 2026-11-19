@@ -321,6 +321,55 @@ try
         Check(json["Data"]!["eodData"]!["grandTotals"]![0]!["transactionCount"]!.GetValue<string>() == before.ToString(), "EOD count mismatch.");
         Check((await State())["captureCount"]!.GetValue<int>() == before, "Command changed capture count.");
     });
+    await Test("GetTurmobInfo matches documented shape with synthetic values", async () =>
+    {
+        await Configure("Success");
+        string[] fields = { "vkn", "tckn", "ad", "soyad", "babaAdi", "vergiDairesiAdi", "vergiDairesiKodu", "sirketinTuru",
+            "faalTerkDurumu", "iseBaslamaTarihi", "isiBirakmaTarihi", "kimlikUnvani", "unvan", "kurulusTarihi",
+            "tamDarMukellefiyet", "kimlikPotansiyel", "dogumYeri" };
+        int before = (await State())["captureCount"]!.GetValue<int>();
+        foreach (var (key, number) in new[] { ("Vkn", "1234567890"), ("Tckn", "12345678901") })
+        {
+            var request = Sale();
+            request.Remove("Sale");
+            int sent = request["TransactionHandle"]!["TransactionSequence"]!.GetValue<int>();
+            request["TurmobInput"] = new JsonObject { [key] = number };
+            using var response = await Post(18080, "/GetTurmobInfo", request);
+            Check(response.StatusCode == HttpStatusCode.OK, "Turmob status " + (int)response.StatusCode);
+            var json = JsonNode.Parse(await response.Content.ReadAsStringAsync())!.AsObject();
+            Check(json.Select(p => p.Key).Order().SequenceEqual(new[] { "Data", "ErrorCode", "HasError", "Message", "TransactionHandle" }.Order()),
+                "Turmob top-level field set differs from documentation.");
+            Check(json["HasError"]!.GetValue<bool>() == false && json["ErrorCode"] is null && json["Message"] is null, "Turmob success envelope wrong.");
+            var handle = json["TransactionHandle"]!;
+            Check(handle["TransactionSequence"]!.GetValue<int>() == sent, "Turmob must echo sequence as in documentation.");
+            Check(handle["SerialNumber"]!.GetValue<string>() == Canary && handle["Fingerprint"]!.GetValue<string>() != Canary, "Turmob handle wrong.");
+            var info = json["Data"]!["TurmobInfo"]!.AsObject();
+            Check(info.Select(p => p.Key).Order().SequenceEqual(fields.Order()), "TurmobInfo field set/casing differs from documentation.");
+            Check(info.All(p => p.Value!.GetValueKind() == JsonValueKind.String), "TurmobInfo values must be strings.");
+            Check(info[key.ToLowerInvariant()]!.GetValue<string>() == number, "Queried number not echoed.");
+            Check(info["vergiDairesiAdi"]!.GetValue<string>().StartsWith("SENTETIK") && info["kimlikUnvani"]!.GetValue<string>().StartsWith("SENTETIK"),
+                "Turmob values must be visibly synthetic.");
+        }
+        Check((await State())["captureCount"]!.GetValue<int>() == before, "Turmob changed capture count.");
+    });
+    await Test("GetTurmobInfo rejects invalid input with synthetic 9104 and honours Busy20", async () =>
+    {
+        await Configure("Success");
+        foreach (var input in new[] { new JsonObject { ["Vkn"] = "123" }, new JsonObject { ["Tckn"] = "1234567890" },
+            new JsonObject { ["Vkn"] = "1234567890", ["Tckn"] = "12345678901" }, new JsonObject() })
+        {
+            var request = Sale(); request.Remove("Sale"); request["TurmobInput"] = input;
+            using var response = await Post(18080, "/GetTurmobInfo", request);
+            var json = JsonNode.Parse(await response.Content.ReadAsStringAsync())!;
+            Check(response.StatusCode == HttpStatusCode.OK && json["HasError"]!.GetValue<bool>() && json["ErrorCode"]!.GetValue<int>() == 9104,
+                "Invalid Turmob input accepted.");
+        }
+        await Configure("Busy20");
+        var busy = Sale(); busy.Remove("Sale"); busy["TurmobInput"] = new JsonObject { ["Vkn"] = "1234567890" };
+        using var busyResponse = await Post(18080, "/GetTurmobInfo", busy);
+        Check(JsonNode.Parse(await busyResponse.Content.ReadAsStringAsync())!["ErrorCode"]!.GetValue<int>() == 20, "Busy20 not applied to Turmob.");
+        await Configure("Success");
+    });
     await Test("unknown PAVO commands and removed routes explicitly unsupported", async () =>
     {
         using var p = await Post(18080, "/UnknownPavoCommand", Sale());

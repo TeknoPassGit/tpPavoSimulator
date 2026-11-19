@@ -1,0 +1,50 @@
+Kaynak: PAVO geliştirici dokümanı, "TÜRMOB Mükellef Sorgula" / POST /GetTurmobInfo
+https://developer.pavopay.dev/cad9bef2-95b4-45ad-a4cc-ff37e1ac74b4/#tag/get_turmob_info/paths/~1GetTurmobInfo/post
+Not: Gerçek cihaz logu değildir; dokümandaki örnek istek/yanıt. TurmobInput'ta Tckn veya Vkn'den yalnızca biri gönderilir.
+
+--- istek
+{
+"TransactionHandle": {
+"SerialNumber": "N500Z000028",
+"TransactionDate": "2024-01-12T16:45:30.310773",
+"TransactionSequence": 3,
+"Fingerprint": "test1"
+},
+"TurmobInput": {
+"Tckn": "3395XXXXXXX"
+}
+}
+
+--- yanıt
+{
+  "HasError": false,
+  "ErrorCode": null,
+  "Message": null,
+  "TransactionHandle": {
+    "SerialNumber": "N500Z000028",
+    "Fingerprint": "XGD/la0920/la0920:7.1.2/N2G47H/102:user/dev-keys",
+    "TransactionSequence": 3,
+    "TransactionDate": "2024-01-12T16:45:30.570771"
+  },
+  "Data": {
+    "TurmobInfo": {
+      "vkn": "",
+      "tckn": "",
+      "ad": "",
+      "soyad": "",
+      "babaAdi": "",
+      "vergiDairesiAdi": "",
+      "vergiDairesiKodu": "",
+      "sirketinTuru": "",
+      "faalTerkDurumu": "",
+      "iseBaslamaTarihi": "",
+      "isiBirakmaTarihi": "",
+      "kimlikUnvani": "",
+      "unvan": "",
+      "kurulusTarihi": "",
+      "tamDarMukellefiyet": "",
+      "kimlikPotansiyel": "",
+      "dogumYeri": ""
+    }
+  }
+}
